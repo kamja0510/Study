@@ -1,0 +1,83 @@
+🔴git
+    ㄴ 버전관리를 위한 소프트웨어이다.
+
+   - 필요한 이유
+      1. 버전 관리
+         ㄴ 변경 사항만 관리를 해서 용량을 엄청 많이 차지하지도 않는다.
+         ㄴ 가지치기가 가능하다. 
+      2. 협업
+         ㄴ git으로 commit한 내용들을 원격으로 전송해서 공용공간에 저장할 수가 있다.
+         ㄴ 순서대로, 체계적으로 기록되고 관리되어서 나중에 문제가 생기더라도, 누가 건드렸는지 알 수 있고 코드들을  과거로 되돌려 문제를 해결 할 수 있다.
+
+   - 터미널 명령어
+      1. cd : 디렉토리를 이동
+         ㄴ cd .. : 뒤로 이동
+      2. mkdir : 디렉토리 만들기
+      3. ls : 파일 리스트를 보여줌
+         ㄴ ls -al : 숨김파일 포함 다 보여줌.
+      4. rm -rf : 디렉토리 묻지도 않고 삭제해버림. 진짜 조심해서 사용해야함. 다날라감.
+      5. explorer . : 현재 경로를 UI로 보여줌. (Mac은 open.)
+      6. echo <내용> > <파일명> : 디렉토리에 <내용>이 들어간 <파일명> 파일을 만든다. 제목이 같다면 덮어쓴다.
+         ㄴ echo <내용> >> <파일명> : 같은 파일명을 썻을때 텍스트를 추가해준다.
+      7. cat <파일명> : 터미널에 파일의 텍스트 내용을 보여준다.
+     
+   - vi 명령어
+      1. :q : 그냥 나옴.
+      2. :wq : 저장하고 나옴.
+
+   - 처음에 알아야 할 명령어
+      1. git --version : git의 버전
+      2. git config --list : git의 모든 환경설정을 확인해 볼 수 있다.
+      3. git config --global -e : 위의 것을 에디터로 확인.
+      4. code . : 현재 디렉터리를 에디터로 열 수 있다.
+      5. git config --global core.editor "code" : 에디터가 열려있는 동안 터미널이 작동한다.
+      6. git config --global core.editor "code --wait" : 에디터가 열려있는 동안 터미널이 멈춘다.
+      7. git config --global user.name "이름" : 이름을 저장
+      8. git config --global user.email "이메일" : 이메일을 저장
+      9. git config user.name : 이런식으로 설정값 확인 가능
+      10. git config --global core.autocrlf true(Mac 사용자는 input) : window는 줄바꿈시 carriage-return(/r)과 line feed(/n) 둘다 들어가고 Mac의 경우에는 line feed만 드간다.
+						                                              따라서, git repository에 다양한 운영체제를 쓸 경우 자동으로 변환 해주게 설정한다.
+						                                              git repository에 저장할 경우 carriage-return을 삭제하고 저장하고, Mac으로 가져올때는 그대로, window로 가져올 때는 carriage-return을 붙여서 가져온다.
+
+   - 자주 쓰이는 명령어
+      1. git init : 숨겨진 git 폴더를 만들어준다. 현재 폴더가 git의 관리하에 드간다. git을 초기화 하고 master branch가 생성된다.
+      2. git status : git의 상태를 보여줌.
+         ㄴ git status -s : 간단하게 보여줌.
+      3. git config --global alias.<줄인 명령어> <명령어> : 기존 명령어를 줄인 명령어를 입력해도 가능하게 해줌.
+      4. git <명령어> --h : 명령어 뒤에 옵션을 볼 수 있다.
+      5. git add <파일명> : staging area로 옮겨준다. commit 할 준비가 됌.
+         ㄴ git add *.txt : 모든 텍스트 파일을 add 함.
+         ㄴ git add * : 모든 파일을 add함.
+         ㄴ git add . : 지운 파일을 포함해서 add함. ( 지운 파일이 staging area에 업데이트 됌. (add * 도 돼는거 같은데??))
+      6. git rm --cached * : 모든 파일을 untracked 상태로 바꾸어 준다.
+      7. echo *.log > .gitignore : 깃에 넣고 싶지 않은 파일을 .gitignore이라는 파일에 넣을 수 있다.
+      8. git diff : 이전 버전과 지금 버전을 비교한다. '-' 부분은 이전 버전, '+' 부분은 최신 버전. working directory의 변경사항만 확인 할 수 있음.
+         ㄴ git diff --staged : staging area의 버전을 비교한다.
+      9. git difftool : vsc로 설정해놓으면 vsc로 git diff를 볼 수 있다.
+         ㄴ git difftool --staged : vsc로 git diff --staged를 볼 수 있다.
+      10. git commit : .git directory로 옮김.
+         ㄴ git commit -m "<메세지>" : 메세지를 설정 하고 .git directory로 옮김.
+         ㄴ git commit -am "<메세지>" : 메세지를 설정하고 add 과정 없이 모든 변경사항들을 commit 한다.
+      11. git log : git history를 볼 수 있다.
+      12. git reset <돌아갈 시점의 일련번호 6자리> --hard : 과거로 돌아가고 그 이후 했던 내용들을 파괴한다.
+      13. git revert <취소할 시점의 일련번호 6자리> : 과거에 변경됀 내용들을 상쇄시키는 commit이 일어난다.
+      14. git branch : branch들의 목록을 볼 수 있다.
+         ㄴ git branch <브랜치명> : 정한 이름의 branch를 생성한다.
+      15. git checkout <브랜치명> : 이름의 branch로 이동한다.
+      16. git merge <브랜치명> : 현재 내가 있는 branch에 입력한 이름의 브랜치를 병합한다.
+      17. git rebase <브랜치명> : 현재 내가 있는 branch에 입력한 이름의 브랜치를 재배치한다.
+      18. git branch -d <브랜치명> : 브랜치 삭제
+      19. git log --graph --all --decorate : 시각화된 작업내역을 볼 수 있다.
+
+   - git의 workflow
+      1. working directory
+         - untracked : git을 초기화했거나 새로만든 파일들.
+         - tracked : git이 이미 트래킹하고있는 알고 있는 파일들.
+            ㄴ unmodified : 이전 버전과 비교해서 변경되지않음.
+            ㄴ modified : 변경된 파일만 staging area로 옮겨갈 수 있다.
+      2. staging area
+      3. .git directory 
+
+🔴github
+   ㄴ git으로 저장되어 원격전송된 내역들이 저장되는 공간을 제공하는 서비스이다.
+   ㄴ 내 코드들을 원격으로 백업해두는 곳을 넘어서 전세계 모든 오픈소스들이 공유돼고, 수많은 자발적 참가자들에 의해 발전하는 곳으로 작용한다.
