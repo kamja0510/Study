@@ -59,20 +59,20 @@
          ㄴ git commit -m "<메세지>" : 메세지를 설정 하고 .git directory로 옮김.
          ㄴ git commit -am "<메세지>" : 메세지를 설정하고 add 과정 없이 모든 변경사항들을 commit 한다.
       11. git log : git history를 볼 수 있다.
+         ㄴ git log --graph --all --decorate : 시각화된 작업내역을 볼 수 있다.
       12. git reset <돌아갈 시점의 일련번호 6자리> --hard : 과거로 돌아가고 그 이후 했던 내용들을 파괴한다.
       13. git revert <취소할 시점의 일련번호 6자리> : 과거에 변경됀 내용들을 상쇄시키는 commit이 일어난다.
       14. git branch : branch들의 목록을 볼 수 있다.
          ㄴ git branch -a : 원격의 branch 목록도 볼 수 있다.
          ㄴ git branch <브랜치명> : 정한 이름의 branch를 생성한다.
+         ㄴ git branch -d <브랜치명> : 브랜치 삭제
       15. git checkout <브랜치명> : 이름의 branch로 이동한다.
          ㄴ git checkout -b <브랜치명> : 브랜치명을 가진 브랜치를 생성하고 바로 이동까지 한다.
       16. git merge <브랜치명> : 현재 내가 있는 branch에 입력한 이름의 브랜치를 병합한다.
       17. git rebase <브랜치명> : 현재 내가 있는 branch에 입력한 이름의 브랜치를 재배치한다.
-      18. git branch -d <브랜치명> : 브랜치 삭제
-      19. git log --graph --all --decorate : 시각화된 작업내역을 볼 수 있다.
-      20. git remote : 원격 레퍼지토리의 이름을 볼 수 있다.
-      21. git fetch : github에서의 소식을 업데이트한다.
-      22. git clone <원격 레퍼지토리 주소> : github에 있는 프로젝트를 새로 내려받기
+      18. git remote : 원격 레퍼지토리의 이름을 볼 수 있다.
+      19. git fetch : github에서의 소식을 업데이트한다.
+      20. git clone <원격 레퍼지토리 주소> : github에 있는 프로젝트를 새로 내려받기 
 
    - git의 workflow
       1. working directory
