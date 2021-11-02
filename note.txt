@@ -1,0 +1,127 @@
+html에 대하여.
+
+렌더링
+
+메타데이터
+
+
+css에 대하여.
+
+flexbox
+
+grid
+
+
+JS에 대하여.
+
+async vs defer
+
+var를 쓰지 않는 이유
+    - hoisting
+    - has no block scope
+
+const로 먼저 변수선언을 하는 이유
+    - security
+    - thread safety
+        - thread들이 동시에 변수 값을 바꾸려하는 것은 위험하다.
+    - reduce human mistackes
+
+variable types
+    ㄴ primitive type
+        ㄴ number
+            ㄴ spcial numeric values
+                ㄴ infinity 
+                ㄴ -infinity
+                ㄴ NaN
+        ㄴ string 
+        ㄴ boolean 
+        ㄴ null
+        ㄴ undefined
+        ㄴ symbol
+    ㄴ reference type 
+        ㄴ object
+        ㄴ function(first-class function)
+
+operator
+    ㄴ string concatenation
+    ㄴ numeric operator
+    ㄴ increment operator & decrement operator
+        ㄴ preincrement & predecrement : ++count, --count
+        ㄴ postincrement & postdecrement : count++, count--
+    ㄴ assignment operator
+    ㄴ comparison operator
+    ㄴ logical operator
+        ㄴ || 
+            - 앞에서 확인하다가 true가 한개라도 나오면 확인을 멈춘다.
+        ㄴ && 
+            - 앞에서 확인하다가 false가 한개라도 나오면 확인을 멈춘다.
+        ㄴ !
+    ㄴ equality
+        ㄴ loose equality : with type conversion
+        ㄴ strict equality : no type conversion
+        - 객체는 가지고있는 주소값으로 비교를 한다.
+        - null == undefined 는 true로 결과값이 나온다.
+    ㄴ conditional operator
+        ㄴ if
+        ㄴ else if
+        ㄴ else
+    ㄴ Ternary operator : condition ? value1(true) : value2(false)
+
+switch statement
+loop
+    ㄴ while
+    ㄴ do while
+    ㄴ for : for(begin; condition; step){}
+    ㄴ for of
+    ㄴ forEach
+    ㄴ nested loop : 반복문 안에 반복문
+        - 피하는게 좋음.
+break & continue
+
+function
+    - fundamental building block in the program
+    - subprogram
+    - function is object in JS
+    - a function declaration can be called earlier than it is defiend. (hoisting)
+    ㄴ anonymous function
+    ㄴ named function
+    ㄴ callback function
+    ㄴ arrow function
+    ㄴ IIFE : immediately invoked function expression
+parameter
+    ㄴ primitive parameter
+    ㄴ object parameter
+    ㄴ default parameter
+    ㄴ rest parameter
+        - rest parameter 에는 default parameter가 적용이 안됌.
+
+class
+    - template
+    - declare once
+    - no data in
+    ㄴ field
+        ㄴ public
+        ㄴ private
+    ㄴ method
+    ㄴ getter and setter
+        - 너무 어렵다...
+    ㄴ static
+    ㄴ extends
+        ㄴ super
+        ㄴ instanceof
+    
+    
+object
+    - instance of class
+
+api의 정의.
+
+
+
+*단어
+1. parsing : (JS, async vs defer)
+2. excuting : (JS, async vs defer)
+3. fetching : (JS, async vs defer)
+4. hoisting : 변수 선언을 맨 위로 올려버리는 것. (JS, var를 쓰지 않는 이유)
+5. scope : 유효범위
+

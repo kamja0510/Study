@@ -4,12 +4,41 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" href = "../Css/practice.css">
+        <script src="https://kit.fontawesome.com/9b3d7da612.js" crossorigin="anonymous"></script>           <!-- 아이콘 불러오기 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap" rel="stylesheet">    <!-- 여기까지 폰트 불러오기 -->
+        <script defer src = "../JavaScript/practice.js"></script>
         <title>Practice HTML</title>
     </head>
     <body>          <!-- 우리가 표시할 컨텐츠들을 가지는 태그 -->
-        <h1>연습</h1>
-        <p>텍스트</p>
-        <hr>
+        <nav class = "navbar">
+            <div class = "navbar__logo">
+                <i class="far fa-smile"></i>
+                <a href = "">Practice</a>
+            </div>
+            <div class = "navbar__menu">
+                <a href = "">Home</a>
+                <a href = "">New Skill</a>
+                <a href = "">To-do</a>
+                <a href = "">FAQ</a>
+                <a href = "">Bookings</a>
+            </div>
+            <div class = "navbar__login">
+                <i class="far fa-user"></i>
+            </div>
+            <div class = "navbar__btn hidden">
+                <i class="fas fa-chevron-circle-down"></i>
+            </div>
+        </nav>
+        <div>
+            <h1>연습</h1>
+            <p>텍스트</p>
+            <hr>
+        </div>
+        <div></div>
+        
         <h2>작은 제목</h2>
         <p>
             공&nbsp;&nbsp;&nbsp;&nbsp;백
@@ -21,5 +50,18 @@
         <strong>굵게!</strong>
         <em>이탤릭체로.</em>
         <mark>형광펜칠</mark>
+        <hr>
+        <div class="container">
+            <div class="item" id="item1">1</div>
+            <div class="item" id="item2">2</div>
+            <div class="item" id="item3">3</div>
+            <div class="item" id="item4">4</div>
+            <div class="item" id="item5">5</div>
+            <div class="item" id="item6">6</div>
+            <div class="item" id="item7">7</div>
+            <div class="item" id="item8">8</div>
+            <div class="item" id="item9">9</div>
+            <div class="item" id="item10">10</div>
+        </div>
     </body>
 </html>
