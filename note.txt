@@ -1,3 +1,22 @@
+웹의 역사
+    - 1990s : static sites
+        - 서버에 이미 잘 만들어진 html 문서들이 있다.
+        - 사용자가 접속하면 서버에 이미 배포되어 있는 html문서를 받아와 보여주는 형식.
+        - 페이지 내에 다른 페이지로 이동하는 링크를 클릭하면 다시 서버에서 문서를 받아오고, 페이지 전체가 업데이트 되어야한다.
+    - 1996 : iframe
+        - 문서내에서 또다른 문서를 담을 수 있는 태그
+        - static site의 단점을 보완해줌.
+    - 1998 : XMLHttpRequest
+        - fetch API의 원조.
+        - JSON과 같은 format으로 필요한 데이터만 가볍게 받아올 수 있다.
+        - 그 데이터를 JS를 이용하여 동적으로 html 요소를 생성하여 페이지에 업데이트 하는 방식.
+    - 2005 : AJAX
+
+
+
+
+
+
 html에 대하여.
 
 렌더링
@@ -5,16 +24,38 @@ html에 대하여.
 메타데이터
 
 
+
+
+
+
+
 css에 대하여.
+
+relative units
+    ㄴ %
+        - relative to parent element
+    ㄴ em
+        - relative to parent element's font-size
+    ㄴ rem
+        - relative to root element
+    ㄴ vw, vh
+        - relative to viewport
+
 
 flexbox
 
 grid
 
 
+
+
+
+
+
 JS에 대하여.
 
 async vs defer
+    -
 
 var를 쓰지 않는 이유
     - hoisting
@@ -43,7 +84,7 @@ variable types
         ㄴ function(first-class function)
 
 operator
-    ㄴ string concatenation
+    ㄴ string concatenation                                                             (practice.js:4~7)
     ㄴ numeric operator
     ㄴ increment operator & decrement operator
         ㄴ preincrement & predecrement : ++count, --count
@@ -67,13 +108,16 @@ operator
         ㄴ else
     ㄴ Ternary operator : condition ? value1(true) : value2(false)
 
-switch statement
+switch statement                                                                        (practice.js:10~21)
 loop
     ㄴ while
     ㄴ do while
     ㄴ for : for(begin; condition; step){}
-    ㄴ for of
-    ㄴ forEach
+        ㄴ for ... of                                                                   (practice.js:24~25)
+            - list 요소들에 순차적으로 접근
+        ㄴ forEach                                                                      (practice.js:93~95)
+        ㄴ for ... in
+            - object의 key들에 순차적으로 접근
     ㄴ nested loop : 반복문 안에 반복문
         - 피하는게 좋음.
 break & continue
@@ -86,16 +130,21 @@ function
     ㄴ anonymous function
     ㄴ named function
     ㄴ callback function
-    ㄴ arrow function
-    ㄴ IIFE : immediately invoked function expression
+        - 함수에 parameter로 들어가는 함수
+        - 순차적으로 실행하고 싶을 때 씀
+        ㄴ synchronous callback
+        ㄴ asynchronous callback
+            ㄴ setTimeout()
+    ㄴ arrow function                                                                   (practice.js:30~36)
+    ㄴ IIFE : immediately invoked function expression                                   (practice.js:38~40)
 parameter
     ㄴ primitive parameter
     ㄴ object parameter
     ㄴ default parameter
-    ㄴ rest parameter
+    ㄴ rest parameter                                                                   (practice.js:23)
         - rest parameter 에는 default parameter가 적용이 안됌.
 
-class
+class                                                                                   (practice.js:42~62)
     - template
     - declare once
     - no data in
@@ -103,25 +152,104 @@ class
         ㄴ public
         ㄴ private
     ㄴ method
-    ㄴ getter and setter
+    ㄴ getter and setter                                                                (practice.js:42~62)
         - 너무 어렵다...
     ㄴ static
     ㄴ extends
         ㄴ super
         ㄴ instanceof
     
-    
 object
     - instance of class
+    - { key : value}
+        ㄴ computed properties                                                          (practice.js:66~69)                                                              
+            - key should be always string
+    ㄴ object literal syntax
+    ㄴ object constructor syntax
+    ㄴ property value shorthand                                                         (practice.js:71~78)
+    ㄴ constructor function                                                             (practice.js:80~85)
+    ㄴ Object.assign();
 
-api의 정의.
+array                                                                                   (practice.js:89~91)
+    ㄴ index
+    ㄴ APIs
+        ㄴ push()
+        ㄴ pop()
+        ㄴ shift()
+            - shift, unshift are slower than push, pop
+        ㄴ splice()
+        ㄴ concat()
+        ㄴ indexOf()
+        ㄴ includes()
+        ㄴ lastIndexOf()
+        ㄴ join()
+        ㄴ split()
+        ㄴ reverse()
+        ㄴ slice()
+        ㄴ find()
+        ㄴ filter()
+        ㄴ map()
+        ㄴ some()
+        ㄴ every()
+        ㄴ reduce()
+        ㄴ sort()
+
+HTTP
+    - Hypertext Transfer Protocal
+AJAX
+    - Asynchronous JavaScript And XML
+XHR
+    - XML HTTP Request
+    - object
+fetch()
+    - API
+JSON
+    - JavaScript Object Notation
+    - simplest data interchange format
+    - independent of programming language and platform
+    ㄴ serialize
+        - object to JSON
+        ㄴ stringify()
+    ㄴ deserialize
+        - JSON to object
+        ㄴ parse(json)
+synchronous
+    - execute the code block in order after hoisting
+Promise                                                                                 
+    - JS object for asynchronous operation
+    ㄴ state
+        - pending -> fulfilled or rejected
+    ㄴ producer                                                                         (practice.js:97~104)
+        - doing some heavy work(network, read files)
+        - when new promise is created, the executor runs automatically.
+    ㄴ consumer
+        - then()                                                                        (practice.js:111)
+        - catch()
+        - finally()
+    ㄴ chaining
+    ㄴ error handling
+    ㄴ async                                                                            (practice.js:106~112)
+        ㄴ await
 
 
 
-*단어
+
+
+
+
+
+
+
+
+
+* 개발 용어
 1. parsing : (JS, async vs defer)
 2. excuting : (JS, async vs defer)
 3. fetching : (JS, async vs defer)
 4. hoisting : 변수 선언을 맨 위로 올려버리는 것. (JS, var를 쓰지 않는 이유)
 5. scope : 유효범위
-
+6. debug : 
+7. compiler : 
+8. interpreter :
+9. database :
+10. RDBMS : relational database management system

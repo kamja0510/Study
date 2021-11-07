@@ -62,3 +62,51 @@ user1.age = 10;
 console.log(user1._age);            // 실제값은 별도의 property _age에 저장이 된다. 하지만 객체 외부에서 건드리지 않는 것이 관습.
 
 console.log(user1 instanceof Object);       // 모든 객체들은 Object라는 클래스를 상속받는다.
+
+function printValue(obj, key){
+    console.log(obj[key]);              // computed property. 동적으로 key의 value를 받아올때 유용하게 사용한다.
+}
+printValue(user1, 'firstName');         // key should be always string
+
+function makePerson(name, age){         // property value shorthand
+    return {
+        name,   // name = name에서 왼쪽은 key값이고 오른쪽은 value값을 parameter로 가져오는 것인데 이것은 생략 가능하고 생략해야 에러가 안뜬다.
+        age
+    };
+}
+const user2 = makePerson('김동진', 24);
+console.log(user2);
+
+function Person(name, age){             // constructor function
+    this.name = name;
+    this.age = age;
+}
+const user3 = new Person('최진철', 23);         // constructor function은 클래스 쓰는 것처럼 쓴다.
+console.log(user3);                     // 일반 object들과 출력이 다르다..
+
+console.log('name' in user3);           // in operator
+
+const people = new Array();
+const language = ['python', 'JS', 'Java'];
+console.log(language[language.length - 1]);
+
+language.forEach(function(value, index, array){         // arrow function으로도 가능.
+    console.log(value, index, array);
+});
+
+function fetchUser(){                                   // Promise producer
+    return new Promise((resolve,reject) => {
+        // do network request in 10 secs...
+        resolve("promise");
+    });
+}
+const practicePromise = fetchUser();
+console.log(practicePromise);
+
+async function asyncFetchUser(){    
+    // do network request in 10 secs...                // async 사용
+    return "promise";
+}
+const practiceAsyncPromise = asyncFetchUser();
+practiceAsyncPromise.then(console.log);                 // then. 비동기적인게 확인가능
+console.log(practiceAsyncPromise);
