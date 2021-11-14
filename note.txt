@@ -57,15 +57,17 @@ JS에 대하여.
 async vs defer
     -
 
-var를 쓰지 않는 이유
-    - hoisting
-    - has no block scope
-
-const로 먼저 변수선언을 하는 이유
-    - security
-    - thread safety
-        - thread들이 동시에 변수 값을 바꾸려하는 것은 위험하다.
-    - reduce human mistackes
+변수 선언
+    ㄴ var
+        - hoisting
+        - has no block scope
+    ㄴ const
+        - security
+        - thread safety
+            - thread들이 동시에 변수 값을 바꾸려하는 것은 위험하다.
+        - reduce human mistackes
+        - 상수값이지만 객체를 선언하면 내부를 바꿀 수 있다.
+    ㄴ let
 
 variable types
     ㄴ primitive type
@@ -74,17 +76,36 @@ variable types
                 ㄴ infinity 
                 ㄴ -infinity
                 ㄴ NaN
-        ㄴ string 
-        ㄴ boolean 
+        ㄴ string
+            ㄴ \
+            ㄴ Number()
+            ㄴ parseInt()
+            ㄴ parseFloat()
+            ㄴ substring()
+        ㄴ boolean
+            ㄴ true
+            ㄴ false
+                ㄴ 빈 문자열
+                ㄴ 0
+                ㄴ NaN
+                ㄴ null
+                ㄴ undefined 
         ㄴ null
         ㄴ undefined
         ㄴ symbol
     ㄴ reference type 
         ㄴ object
-        ㄴ function(first-class function)
+            ㄴ function(first-class function)
+            ㄴ array
+    ㄴ typeof()
+    ㄴ type casting (type conversion)
+        ㄴ 더하기 연산일 때 : 어느 한 쪽 이라도 문자열이 있으면 양쪽 모두를 문자열로 형 변환해서 연산을 수행
+        ㄴ 그 외 연산일 때 : 산술연산은 일반적으로 피연산자 모두를 숫자로 형 변환해서 연산을 수행
+
+
 
 operator
-    ㄴ string concatenation                                                             (practice.js:4~7)
+    ㄴ string concatenation                                                             
     ㄴ numeric operator
     ㄴ increment operator & decrement operator
         ㄴ preincrement & predecrement : ++count, --count
@@ -102,20 +123,23 @@ operator
         ㄴ strict equality : no type conversion
         - 객체는 가지고있는 주소값으로 비교를 한다.
         - null == undefined 는 true로 결과값이 나온다.
-    ㄴ conditional operator
-        ㄴ if
-        ㄴ else if
-        ㄴ else
-    ㄴ Ternary operator : condition ? value1(true) : value2(false)
+            ㄴ 굉장히 이해안돼는것들이 많으므로 strict equality를 자주 쓰자.
+    ㄴ conditional operator (Ternary operator) : condition ? value1(true) : value2(false)
+    ㄴ 우선순위 
 
-switch statement                                                                        (practice.js:10~21)
+ㄴ conditional statement
+    ㄴ if
+    ㄴ else if
+    ㄴ else
+    
+switch statement                                                              
 loop
     ㄴ while
     ㄴ do while
     ㄴ for : for(begin; condition; step){}
-        ㄴ for ... of                                                                   (practice.js:24~25)
+        ㄴ for ... of                                                                  
             - list 요소들에 순차적으로 접근
-        ㄴ forEach                                                                      (practice.js:93~95)
+        ㄴ forEach                                                              
         ㄴ for ... in
             - object의 key들에 순차적으로 접근
     ㄴ nested loop : 반복문 안에 반복문
@@ -127,6 +151,19 @@ function
     - subprogram
     - function is object in JS
     - a function declaration can be called earlier than it is defiend. (hoisting)
+    ㄴ return
+        - 기본값은 undefined
+        - return이 돼는 순간 함수 종료
+    ㄴ argument
+        ㄴ arguments
+            - 내가 전달한 인자들을 배열로 가지는 함수안에서만 쓸 수 있는 변수.
+            - cannot use in arrow function
+    ㄴ parameter
+        ㄴ primitive parameter
+        ㄴ object parameter
+        ㄴ default parameter
+        ㄴ rest parameter                                                       
+            - rest parameter 에는 default parameter가 적용이 안됌.
     ㄴ anonymous function
     ㄴ named function
     ㄴ callback function
@@ -135,47 +172,16 @@ function
         ㄴ synchronous callback
         ㄴ asynchronous callback
             ㄴ setTimeout()
-    ㄴ arrow function                                                                   (practice.js:30~36)
-    ㄴ IIFE : immediately invoked function expression                                   (practice.js:38~40)
-parameter
-    ㄴ primitive parameter
-    ㄴ object parameter
-    ㄴ default parameter
-    ㄴ rest parameter                                                                   (practice.js:23)
-        - rest parameter 에는 default parameter가 적용이 안됌.
+    ㄴ arrow function                                                              
+    ㄴ IIFE : immediately invoked function expression                     
 
-class                                                                                   (practice.js:42~62)
-    - template
-    - declare once
-    - no data in
-    ㄴ field
-        ㄴ public
-        ㄴ private
-    ㄴ method
-    ㄴ getter and setter                                                                (practice.js:42~62)
-        - 너무 어렵다...
-    ㄴ static
-    ㄴ extends
-        ㄴ super
-        ㄴ instanceof
-    
-object
-    - instance of class
-    - { key : value}
-        ㄴ computed properties                                                          (practice.js:66~69)                                                              
-            - key should be always string
-    ㄴ object literal syntax
-    ㄴ object constructor syntax
-    ㄴ property value shorthand                                                         (practice.js:71~78)
-    ㄴ constructor function                                                             (practice.js:80~85)
-    ㄴ Object.assign();
-
-array                                                                                   (practice.js:89~91)
+array                                                                            
     ㄴ index
+        ㄴ .length
     ㄴ APIs
         ㄴ push()
         ㄴ pop()
-        ㄴ shift()
+        ㄴ shift(), unshift()
             - shift, unshift are slower than push, pop
         ㄴ splice()
         ㄴ concat()
@@ -193,6 +199,32 @@ array                                                                           
         ㄴ every()
         ㄴ reduce()
         ㄴ sort()
+    
+object
+    - instance of class
+    - { key : value}
+        ㄴ computed properties                                                                                                                       
+            - key should be always string
+    ㄴ object literal syntax
+    ㄴ object constructor syntax
+    ㄴ property value shorthand                                                       
+    ㄴ constructor function                                                    
+    ㄴ Object.assign();
+
+class                                                                             
+    - template
+    - declare once
+    - no data in
+    ㄴ field
+        ㄴ public
+        ㄴ private
+    ㄴ method
+    ㄴ getter and setter                                                         
+        - 너무 어렵다...
+    ㄴ static
+    ㄴ extends
+        ㄴ super
+        ㄴ instanceof
 
 HTTP
     - Hypertext Transfer Protocal
@@ -219,16 +251,16 @@ Promise
     - JS object for asynchronous operation
     ㄴ state
         - pending -> fulfilled or rejected
-    ㄴ producer                                                                         (practice.js:97~104)
+    ㄴ producer                                                                       
         - doing some heavy work(network, read files)
         - when new promise is created, the executor runs automatically.
     ㄴ consumer
-        - then()                                                                        (practice.js:111)
+        - then()                                                                       
         - catch()
         - finally()
     ㄴ chaining
     ㄴ error handling
-    ㄴ async                                                                            (practice.js:106~112)
+    ㄴ async                                                                            
         ㄴ await
 
 
@@ -249,7 +281,11 @@ Promise
 4. hoisting : 변수 선언을 맨 위로 올려버리는 것. (JS, var를 쓰지 않는 이유)
 5. scope : 유효범위
 6. debug : 
-7. compiler : 
-8. interpreter :
+7. compiler language : 코드를 컴퓨터가 이해할 수 있는 언어로 변환한 후에 한번에 실행하는 방식. 
+8. interpreter language : 코드를 한 덩어리씩 실행해 결과를 출력하는 방식.
 9. database :
-10. RDBMS : relational database management system
+10. RDBMS (Relational DatabBase Management System) : 
+11. parenthesis : 소괄호
+12. brace : 중괄호
+13. bracket : 대괄호
+14. REPL (Read-Eval-Print-Loop) : 코드를 한줄씩 읽고 평가한 후 출력하고 프롬프트가 나타나 새로운 입력을 기다리는 것을 반복하는 브라우저 콘솔의 특징
